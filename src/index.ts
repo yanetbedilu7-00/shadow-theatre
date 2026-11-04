@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import { World } from '@iwsdk/core';
+import projectOptions from 'virtual:iwsdk-project';
+import { BackdropSystem } from './backdrops.js';
+import { CreatureSystem } from './creatures.js';
+import { HandShapeSystem } from './hand-shapes.js';
+import { PanelSystem } from './panel.js';
+import { PuppetSystem } from './puppet.js';
+import { RobotSystem } from './robot.js';
+import { StorySystem } from './story.js';
+import { TheatreSystem } from './theatre.js';
+
+World.create(
+  document.getElementById('scene-container') as HTMLDivElement,
+  projectOptions,
+).then((world) => {
+  world.registerSystem(RobotSystem);
+  world.registerSystem(PanelSystem);
+  world.registerSystem(HandShapeSystem);
+  world.registerSystem(PuppetSystem);
+  world.registerSystem(TheatreSystem);
+  world.registerSystem(BackdropSystem);
+  world.registerSystem(CreatureSystem);
+  world.registerSystem(StorySystem);
+});
